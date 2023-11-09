@@ -1,5 +1,11 @@
 # Changelog
 
+## \[1.4.6]
+
+### Bug Fixes
+
+- [`1d5aa38a`](https://www.github.com/tauri-apps/tauri/commit/1d5aa38ae418ea31f593590b6d32cf04d3bfd8c1)([#8162](https://www.github.com/tauri-apps/tauri/pull/8162)) Fixes errors on command output, occuring when the output stream contains an invalid UTF-8 character, or ends with a multi-bytes UTF-8 character.
+
 ## \[1.4.5]
 
 ### Enhancements
