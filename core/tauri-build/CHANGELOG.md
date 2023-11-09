@@ -1,5 +1,11 @@
 # Changelog
 
+## \[2.0.0-alpha.12]
+
+### Bug Fixes
+
+- [`a5479712`](https://www.github.com/tauri-apps/tauri/commit/a5479712095c224e2cb147d5c271acbc2fc97e79)([#8168](https://www.github.com/tauri-apps/tauri/pull/8168)) Fixed an issue that caused the resource compiler to not run on Windows when `package.version` was not set in `tauri.conf.json` preventing the app from starting.
+
 ## \[2.0.0-alpha.11]
 
 ### Enhancements
