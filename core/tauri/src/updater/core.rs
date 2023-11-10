@@ -72,7 +72,7 @@ pub struct RemoteRelease {
 }
 
 use std::fs::File;
-use std::io::{Write, BufReader, BufRead, Error};
+use std::io::{Write};
 
 impl<'de> Deserialize<'de> for RemoteRelease {
   fn deserialize<D>(deserializer: D) -> std::result::Result<Self, D::Error>
