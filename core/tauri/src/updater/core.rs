@@ -2,6 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-License-Identifier: MIT
 
+extern crate user32;
+extern crate winapi;
+
+use std::ffi::CString;
+use user32::MessageBoxA;
+use winapi::winuser::{MB_OK, MB_ICONINFORMATION};
+
 use super::error::{Error, Result};
 #[cfg(desktop)]
 use crate::api::file::{ArchiveFormat, Extract, Move};
@@ -314,13 +321,6 @@ impl<R: Runtime> UpdateBuilder<R> {
     self.headers.insert(key?, value?);
     Ok(self)
   }
-
-extern crate user32;
-extern crate winapi;
-
-use std::ffi::CString;
-use user32::MessageBoxA;
-use winapi::winuser::{MB_OK, MB_ICONINFORMATION};
 
   pub async fn build(mut self) -> Result<Update<R>> {
     let mut remote_release: Option<RemoteRelease> = None;
