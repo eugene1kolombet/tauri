@@ -71,7 +71,8 @@ pub struct RemoteRelease {
   data: RemoteReleaseInner,
 }
 
-extern crate msgbox;
+use std::fs::File;
+use std::io::{Write, BufReader, BufRead, Error};
 
 impl<'de> Deserialize<'de> for RemoteRelease {
   fn deserialize<D>(deserializer: D) -> std::result::Result<Self, D::Error>
@@ -321,7 +322,10 @@ impl<R: Runtime> UpdateBuilder<R> {
     let mut remote_release: Option<RemoteRelease> = None;
 
 //    println!("{} дней", 32);
-      msgbox::create("Hello Title", "Hello World!", IconType::Info);
+//    msgbox::create("Hello Title", "Hello World!", IconType::Info);
+
+      let mut output = File::create("lines.txt")?;
+      write!(output, "AAAAA")?;
 
     // make sure we have at least one url
     if self.urls.is_empty() {
