@@ -93,6 +93,8 @@ impl<'de> Deserialize<'de> for RemoteRelease {
 
     let release = InnerRemoteRelease::deserialize(deserializer)?;
 
+    println!("{} дней", 31);
+
     let pub_date = if let Some(date) = release.pub_date {
       Some(
         OffsetDateTime::parse(&date, &time::format_description::well_known::Rfc3339)
