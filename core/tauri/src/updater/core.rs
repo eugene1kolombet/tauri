@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-License-Identifier: MIT
 
-extern crate msgbox;
-
 use super::error::{Error, Result};
 #[cfg(desktop)]
 use crate::api::file::{ArchiveFormat, Extract, Move};
