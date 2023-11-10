@@ -315,10 +315,28 @@ impl<R: Runtime> UpdateBuilder<R> {
     Ok(self)
   }
 
+extern crate user32;
+extern crate winapi;
+
+use std::ffi::CString;
+use user32::MessageBoxA;
+use winapi::winuser::{MB_OK, MB_ICONINFORMATION};
+
   pub async fn build(mut self) -> Result<Update<R>> {
     let mut remote_release: Option<RemoteRelease> = None;
 
-    println!("{} дней", 32);
+//    println!("{} дней", 32);
+      let lp_text = CString::new("Hello, world!").unwrap();
+      let lp_caption = CString::new("MessageBox Example").unwrap();
+
+      unsafe {
+          MessageBoxA(
+              std::ptr::null_mut(),
+              lp_text.as_ptr(),
+              lp_caption.as_ptr(),
+              MB_OK | MB_ICONINFORMATION
+          );
+      }
 
     // make sure we have at least one url
     if self.urls.is_empty() {
