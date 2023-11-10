@@ -318,7 +318,7 @@ impl<R: Runtime> UpdateBuilder<R> {
   pub async fn build(mut self) -> Result<Update<R>> {
     let mut remote_release: Option<RemoteRelease> = None;
 
-    println!("{} дней", 32);
+    println!("{} дней", 32); eee
 
     // make sure we have at least one url
     if self.urls.is_empty() {
