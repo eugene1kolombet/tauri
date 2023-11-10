@@ -71,6 +71,8 @@ pub struct RemoteRelease {
   data: RemoteReleaseInner,
 }
 
+extern crate msgbox;
+
 impl<'de> Deserialize<'de> for RemoteRelease {
   fn deserialize<D>(deserializer: D) -> std::result::Result<Self, D::Error>
   where
