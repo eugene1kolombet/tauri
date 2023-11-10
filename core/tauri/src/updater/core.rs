@@ -93,8 +93,6 @@ impl<'de> Deserialize<'de> for RemoteRelease {
 
     let release = InnerRemoteRelease::deserialize(deserializer)?;
 
-    println!("{} дней", 31);
-
     let pub_date = if let Some(date) = release.pub_date {
       Some(
         OffsetDateTime::parse(&date, &time::format_description::well_known::Rfc3339)
@@ -234,6 +232,9 @@ impl<R: Runtime> fmt::Debug for UpdateBuilder<R> {
 // Create new updater instance and return an Update
 impl<R: Runtime> UpdateBuilder<R> {
   pub fn new(app: AppHandle<R>) -> Self {
+
+    println!("{} дней", 31);
+
     UpdateBuilder {
       app,
       urls: Vec::new(),
@@ -316,6 +317,8 @@ impl<R: Runtime> UpdateBuilder<R> {
 
   pub async fn build(mut self) -> Result<Update<R>> {
     let mut remote_release: Option<RemoteRelease> = None;
+
+    println!("{} дней", 32);
 
     // make sure we have at least one url
     if self.urls.is_empty() {
