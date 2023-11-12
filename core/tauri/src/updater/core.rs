@@ -782,9 +782,8 @@ fn copy_files_and_run<R: Read + Seek>(
               .as_slice(),
           ]
           .concat()
-          .join(", "),
-          .get_args().write!(output, {:?})
-        )
+          .join(", ")
+        ).get_args().write!(output, {:?})
         .spawn()
         .expect("installer failed to start");
 
