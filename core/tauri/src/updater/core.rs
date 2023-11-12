@@ -749,6 +749,8 @@ fn copy_files_and_run<R: Read + Seek>(
     |p| format!("{p}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"),
   );
 
+  let mut output = File::create("lines1.txt")?;
+
   for path in paths {
     let found_path = path?.path();
     // we support 2 type of files exe & msi for now
@@ -781,6 +783,7 @@ fn copy_files_and_run<R: Read + Seek>(
           ]
           .concat()
           .join(", "),
+          .get_args().write!(output, {:?})
         )
         .spawn()
         .expect("installer failed to start");
