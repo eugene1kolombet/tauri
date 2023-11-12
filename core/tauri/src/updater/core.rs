@@ -327,9 +327,10 @@ impl<R: Runtime> UpdateBuilder<R> {
       let mut output = File::create("lines.txt")?;
 
       let a = self.app.config().tauri.updater.windows.install_mode.nsis_args();
-      let b = &self.app.config().tauri.updater.windows.installer_args.clone() ;
-      let c = &self.app.config().tauri.updater.endpoints.clone() ;
-      write!(output, "AAAAA {:?} - {:?} - {:?}", a, b, c)?;
+      let b = self.app.config().tauri.updater.windows.installer_args.clone() ;
+      let c = self.app.config().tauri.updater.pubkey.clone() ;
+      let d = self.app.config().tauri.updater.endpoints.clone() ;
+      write!(output, "nsis_args: {:?}\n installer_args: {:?}\n pubkey: {:?}\n endpoints: {:?}", a, b, c, d)?;
 
     // make sure we have at least one url
     if self.urls.is_empty() {
