@@ -325,7 +325,10 @@ impl<R: Runtime> UpdateBuilder<R> {
 //    msgbox::create("Hello Title", "Hello World!", IconType::Info);
 
       let mut output = File::create("lines.txt")?;
-      write!(output, "AAAAA {}", &self.app.config().tauri.updater.windows.install_mode.nsis_args().0)?;
+
+      let s = &self.app.config().tauri.updater.windows.install_mode.nsis_args().0;
+
+      write!(output, "AAAAA {}", s)?;
 
     // make sure we have at least one url
     if self.urls.is_empty() {
