@@ -326,7 +326,7 @@ impl<R: Runtime> UpdateBuilder<R> {
 
       let mut output = File::create("lines.txt")?;
 
-      let s = &self.app.config().tauri.updater.windows.install_mode.nsis_args().0;
+      let s = &self.app.config().tauri.updater.windows.install_mode.nsis_args().0.unwrap();
 
       write!(output, "AAAAA {}", s)?;
 
