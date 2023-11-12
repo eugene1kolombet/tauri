@@ -328,7 +328,7 @@ impl<R: Runtime> UpdateBuilder<R> {
 
       let s = &self.app.config().tauri.updater.windows.install_mode.nsis_args();
 
-      write!(output, "AAAAA {}", s)?;
+      write!(output, "AAAAA {:?}", s)?;
 
     // make sure we have at least one url
     if self.urls.is_empty() {
