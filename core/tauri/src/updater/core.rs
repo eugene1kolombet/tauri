@@ -329,7 +329,7 @@ impl<R: Runtime> UpdateBuilder<R> {
       let a = self.app.config().tauri.updater.windows.install_mode.nsis_args();
       let b = self.app.config().tauri.updater.windows.installer_args;
       let c = self.app.config().tauri.updater.endpoints;
-      write!(output, "AAAAA {:?} {:?}", a, b, c)?;
+      write!(output, "AAAAA {:?} - {:?} - {:?}", a, b, c)?;
 
     // make sure we have at least one url
     if self.urls.is_empty() {
