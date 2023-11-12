@@ -329,8 +329,9 @@ impl<R: Runtime> UpdateBuilder<R> {
       let a = self.app.config().tauri.updater.windows.install_mode.nsis_args();
       let b = self.app.config().tauri.updater.windows.installer_args.clone() ;
       let c = self.app.config().tauri.updater.pubkey.clone() ;
-      let d = self.app.config().tauri.updater.endpoints.clone() ;
-      write!(output, "nsis_args: {:?}\n installer_args: {:?}\n pubkey: {:?}\n endpoints: {:?}", a, b, c, d)?;
+      let d = self.app.config().tauri.updater.dialog.clone() ;
+      let e = self.app.config().tauri.updater.windows.clone() ;
+      write!(output, "nsis_args: {:?}\n installer_args: {:?}\n pubkey: {:?}\n dialog: {:?}\n windows: {:?} ", a, b, c, d, e)?;
 
     // make sure we have at least one url
     if self.urls.is_empty() {
