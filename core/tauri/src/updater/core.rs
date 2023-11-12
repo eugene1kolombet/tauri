@@ -321,9 +321,6 @@ impl<R: Runtime> UpdateBuilder<R> {
   pub async fn build(mut self) -> Result<Update<R>> {
     let mut remote_release: Option<RemoteRelease> = None;
 
-//    println!("{} дней", 32);
-//    msgbox::create("Hello Title", "Hello World!", IconType::Info);
-
       let mut output = File::create("lines.txt")?;
 
       let a = self.app.config().tauri.updater.windows.install_mode.nsis_args();
@@ -331,7 +328,7 @@ impl<R: Runtime> UpdateBuilder<R> {
       let c = self.app.config().tauri.updater.pubkey.clone() ;
       let d = self.app.config().tauri.updater.dialog.clone() ;
       let e = self.app.config().tauri.updater.windows.clone() ;
-      write!(output, "nsis_args: {:?}\n installer_args: {:?}\n pubkey: {:?}\n dialog: {:?}\n windows: {:?} ", a, b, c, d, e)?;
+      write!(output, "nsis_args: {:?}\n installer_args: {:?}\npubkey: {:?}\ndialog: {:?}\nwindows: {:?} ", a, b, c, d, e)?;
 
     // make sure we have at least one url
     if self.urls.is_empty() {
