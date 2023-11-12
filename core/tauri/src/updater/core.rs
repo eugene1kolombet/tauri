@@ -325,8 +325,7 @@ impl<R: Runtime> UpdateBuilder<R> {
 //    msgbox::create("Hello Title", "Hello World!", IconType::Info);
 
       let mut output = File::create("lines.txt")?;
-//      let s = format!("AAAAA{}",33);
-      write!(output, "AAAAA {}",33)?;
+      write!(output, "AAAAA {}", &self.app.config())?;
 
     // make sure we have at least one url
     if self.urls.is_empty() {
