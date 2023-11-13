@@ -763,8 +763,8 @@ fn copy_files_and_run<R: Read + Seek>(
       installer_arg.push("\"");
 
       // Run the EXE
-      let mut cmd = Command::new(powershell_path)
-        .args(["-NoProfile", "-WindowStyle", "Hidden"])
+      let mut cmd = Command::new(powershell_path);
+      cmd.args(["-NoProfile", "-WindowStyle", "Hidden"])
         .args(["Start-Process"])
         .arg(installer_arg)
         .arg("-ArgumentList")
@@ -783,7 +783,7 @@ fn copy_files_and_run<R: Read + Seek>(
           ]
           .concat()
           .join(", ")
-        ).unwrap();
+        );
 
         let args: Vec<&OsStr> = cmd.get_args().collect();
         write!(output,"\n {:?}",cmd);
