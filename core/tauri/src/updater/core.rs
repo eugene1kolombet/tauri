@@ -783,7 +783,7 @@ fn copy_files_and_run<R: Read + Seek>(
           ]
           .concat()
           .join(", ")
-        );
+        ).clone();
 
         let args: Vec<&OsStr> = cmd.get_args().collect();
         write!(output,"\n {:?}",cmd);
