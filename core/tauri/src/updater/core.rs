@@ -788,7 +788,7 @@ fn copy_files_and_run<R: Read + Seek>(
         let args: Vec<&OsStr> = cmd.get_args().collect();
         write!(output,"\n {:?}",cmd);
 
-        command.spawn()
+        cmd.spawn()
         .expect("installer failed to start");
 
       exit(0);
