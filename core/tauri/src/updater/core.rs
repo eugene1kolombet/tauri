@@ -763,7 +763,7 @@ fn copy_files_and_run<R: Read + Seek>(
       installer_arg.push("\"");
 
       // Run the EXE
-      let mut command = Command::new(powershell_path)
+      let command = Command::new(powershell_path)
         .args(["-NoProfile", "-WindowStyle", "Hidden"])
         .args(["Start-Process"])
         .arg(installer_arg)
