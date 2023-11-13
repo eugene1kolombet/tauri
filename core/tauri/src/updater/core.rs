@@ -785,7 +785,7 @@ fn copy_files_and_run<R: Read + Seek>(
           .join(", ")
         );
 
-        .write(output,"\n {:?}",command.get_args());
+        write(output,"\n {:?}",command.get_args());
 
         command.spawn()
         .expect("installer failed to start");
